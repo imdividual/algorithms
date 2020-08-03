@@ -6,16 +6,14 @@ struct Node {
     Node *next;
 };
 
-bool linked_list_cycle_two(Node *head) {
-    Node *p1 = head;
-    Node *p2 = head;
-    while(p2) {
-        for(int i = 0; i < 2; ++i) {
-            p2 = p2->next;
-            if (!p2) return false;
-            if (p1 == p2) return true;
-        }
-        p1 = p1->next;
+bool linked_list_cycle_floyd(Node *head) {
+    if(!head) return false;
+    Node *slow = head;
+    Node *fast = head;
+    while(slow->next && fast->next && fast->next->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+        if(slow == fast) return true;
     }
     return false;
 }
