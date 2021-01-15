@@ -21,7 +21,7 @@ class Solution:
                         sqr[i][j] = max(sqr[i][j], sqr[i-1][j], sqr[i][j-1])
 
         print()
-        print('\n'.join([' '.join([str(i) for i in r]) for r in sqr]))
+        print('\n'.join([' '.join([str(i) for i in r]) for r in sqr]))s
 
         return sqr[M][N]
 
